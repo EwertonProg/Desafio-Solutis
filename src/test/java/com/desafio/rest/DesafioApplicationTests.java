@@ -1,4 +1,4 @@
-package com.teste.rest;
+package com.desafio.rest;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
