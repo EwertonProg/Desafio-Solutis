@@ -18,6 +18,7 @@ public class VcvController {
 
 	@PostMapping
 	public Vcv encontrar(@RequestBody Vcv entrada) {
+		entrada.encontrarVogal();
 		return vcvs.save(entrada);
 	}
 }
