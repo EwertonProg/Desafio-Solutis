@@ -11,7 +11,7 @@
 	</parent>
 	<groupId>com.desafio</groupId>
 	<artifactId>Desafio</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.1</version>
 	<name>Desafio</name>
 	<description>Desafio Rest</description>
 

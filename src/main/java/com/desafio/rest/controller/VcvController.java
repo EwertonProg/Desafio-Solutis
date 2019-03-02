@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.desafio.rest.model.Vcv;
 import com.desafio.rest.repository.Vcvs;
 
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin
 @RestController
 @RequestMapping("/vcv")
 public class VcvController {

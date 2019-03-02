@@ -15,61 +15,71 @@ public class Vcv {
 	private long tempoTotal;
 
 	public void encontrarVogal() {
-		String S = new String(entrada);
-		S.toLowerCase();
+		String S = new String(entrada.toLowerCase());
 		char[] letras = S.toCharArray();
 		vogal = '\n';
+		boolean b = true;
 		Integer a = 0, e = 0, i = 0, o = 0, u = 0;
 		for (int c = 0; c < letras.length; c++) {
-			switch (letras[c]) {
+			switch (Character.toLowerCase(letras[c])) {
 
 			case 'a':
 				if (c > 1 && isConsoante(letras[c - 1]) && isVogal(letras[c - 2])) {
-					if (a < 1) {
+					if (a < 1 && b) {
 						vogal = letras[c];
-					} else if (this.vogal.equals(letras[c])) {
-						vogal = '\n';
-					}
+						b = false;
+					} 
+				}else if (this.vogal.equals(letras[c])) {
+					vogal = '\n';
+					b = true;
 				}
 				a++;
 				break;
 			case 'e':
 				if (c > 1 && isConsoante(letras[c - 1]) && isVogal(letras[c - 2])) {
-					if (e < 1) {
+					if (e < 1 && b) {
 						vogal = letras[c];
-					} else if (this.vogal.equals(letras[c])) {
-						vogal = '\n';
-					}
+						b = false;
+					} 
+				}else if (this.vogal.equals(letras[c])) {
+					vogal = '\n';
+					b = true;
 				}
 				e++;
 				break;
 			case 'i':
 				if (c > 1 && isConsoante(letras[c - 1]) && isVogal(letras[c - 2])) {
-					if (i < 1) {
+					if (i < 1 && b) {
 						vogal = letras[c];
-					} else if (this.vogal.equals(letras[c])) {
-						vogal = '\n';
-					}
+						b = false;
+					} 
+				}else if (this.vogal.equals(letras[c])) {
+					vogal = '\n';
+					b = true;
 				}
 				i++;
 				break;
 			case 'o':
 				if (c > 1 && isConsoante(letras[c - 1]) && isVogal(letras[c - 2])) {
-					if (o < 1) {
+					if (o < 1 && b) {
 						vogal = letras[c];
-					} else if (this.vogal.equals(letras[c])) {
-						vogal = '\n';
-					}
+						b = false;
+					} 
+				}else if (this.vogal.equals(letras[c])) {
+					vogal = '\n';
+					b = true;
 				}
 				o++;
 				break;
 			case 'u':
 				if (c > 1 && isConsoante(letras[c - 1]) && isVogal(letras[c - 2])) {
-					if (u < 1) {
+					if (u < 1 && b) {
 						vogal = letras[c];
-					} else if (this.vogal.equals(letras[c])) {
-						vogal = '\n';
-					}
+						b = false;
+					} 
+				}else if (this.vogal.equals(letras[c])) {
+					vogal = '\n';
+					b = true;
 				}
 				u++;
 				break;
@@ -87,6 +97,11 @@ public class Vcv {
 		case 'i':
 		case 'o':
 		case 'u':
+		case 'A':
+		case 'E':
+		case 'I':
+		case 'O':
+		case 'U':
 			return true;
 		default:
 			return false;
@@ -94,13 +109,8 @@ public class Vcv {
 	}
 
 	private static boolean isNumero(char c) {
-		try {
-			Integer.parseInt(String.valueOf(c));
-
-		} catch (Exception e) {
-			return false;
-		}
-		return true;
+		
+		return Character.isDigit(c);
 	}
 
 	private static boolean isConsoante(char c) {
