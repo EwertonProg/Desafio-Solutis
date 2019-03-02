@@ -12,10 +12,9 @@ public class Vcv {
 	private Long id;
 	private String entrada;
 	private Character vogal;
-	private Long tempoTotal;
+	private long tempoTotal;
 
 	public void encontrarVogal() {
-		long inicio = System.currentTimeMillis();
 		String S = new String(entrada);
 		S.toLowerCase();
 		char[] letras = S.toCharArray();
@@ -25,7 +24,7 @@ public class Vcv {
 			switch (letras[c]) {
 
 			case 'a':
-				if (c > 1 && isConsoante(letras[c - 1]) && isVogal(letras[c])) {
+				if (c > 1 && isConsoante(letras[c - 1]) && isVogal(letras[c - 2])) {
 					if (a < 1) {
 						vogal = letras[c];
 					} else if (this.vogal.equals(letras[c])) {
@@ -35,7 +34,7 @@ public class Vcv {
 				a++;
 				break;
 			case 'e':
-				if (c > 1 && isConsoante(letras[c - 1]) && isVogal(letras[c])) {
+				if (c > 1 && isConsoante(letras[c - 1]) && isVogal(letras[c - 2])) {
 					if (e < 1) {
 						vogal = letras[c];
 					} else if (this.vogal.equals(letras[c])) {
@@ -45,7 +44,7 @@ public class Vcv {
 				e++;
 				break;
 			case 'i':
-				if (c > 1 && isConsoante(letras[c - 1]) && isVogal(letras[c])) {
+				if (c > 1 && isConsoante(letras[c - 1]) && isVogal(letras[c - 2])) {
 					if (i < 1) {
 						vogal = letras[c];
 					} else if (this.vogal.equals(letras[c])) {
@@ -55,7 +54,7 @@ public class Vcv {
 				i++;
 				break;
 			case 'o':
-				if (c > 1 && isConsoante(letras[c - 1]) && isVogal(letras[c])) {
+				if (c > 1 && isConsoante(letras[c - 1]) && isVogal(letras[c - 2])) {
 					if (o < 1) {
 						vogal = letras[c];
 					} else if (this.vogal.equals(letras[c])) {
@@ -65,7 +64,7 @@ public class Vcv {
 				o++;
 				break;
 			case 'u':
-				if (c > 1 && isConsoante(letras[c - 1]) && isVogal(letras[c])) {
+				if (c > 1 && isConsoante(letras[c - 1]) && isVogal(letras[c - 2])) {
 					if (u < 1) {
 						vogal = letras[c];
 					} else if (this.vogal.equals(letras[c])) {
@@ -79,7 +78,6 @@ public class Vcv {
 				break;
 			}
 		}
-		this.tempoTotal = System.currentTimeMillis() - inicio;
 	}
 
 	private static boolean isVogal(char c) {
@@ -133,11 +131,11 @@ public class Vcv {
 		this.vogal = vogal;
 	}
 
-	public Long getTempoTotal() {
+	public long getTempoTotal() {
 		return tempoTotal;
 	}
 
-	public void setTempoTotal(Long tempoTotal) {
+	public void setTempoTotal(long tempoTotal) {
 		this.tempoTotal = tempoTotal;
 	}
 
